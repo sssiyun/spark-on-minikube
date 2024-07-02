@@ -40,6 +40,8 @@ Test if run successfully http://localhost:8080
 ## Test Spark Script
 Build Demo Spark Image 
 ```
+cd demo-script
+
 eval $(minikube -p minikube docker-env)
 
 docker build -t spark-job:latest .
