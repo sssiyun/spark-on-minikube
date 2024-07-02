@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: spark-submit-pod
+spec:
+  containers:
+  - name: spark-submit-container
+    image: spark-job:latest  # Use the local Docker image
+    imagePullPolicy: Never # Use the local Docker image
+    command: ["/opt/bitnami/spark/bin/spark-submit"]
+    args: [
+      "--master", "spark://spark-master:7077",  # Replace with your Spark master's URL
+      "--deploy-mode", "cluster",
+      "--name", "spark-job",
+      "--jars", "/opt/bitnami/spark/jars/mysql-connector-java-8.0.32.jar",  # Path to MySQL connector JAR
+      "/opt/spark-apps/example.py"  # Replace with the path to your Spark script
+    ]
+  restartPolicy: Never
