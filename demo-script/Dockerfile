@@ -10,7 +10,6 @@ RUN mkdir -p /opt/spark-apps
 
 # Copy your Spark script into the Docker image
 COPY example.py /opt/spark-apps/
-COPY mysql-connector-java-8.0.25.jar /opt/bitnami/spark/jars/mysql-connector-java-8.0.32.jar
 
 # Download the MySQL connector JAR and place it in the jars directory
 RUN curl -o /opt/bitnami/spark/jars/mysql-connector-java-8.0.32.jar \
